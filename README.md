@@ -1,89 +1,41 @@
-# MONGODB
+# MONGO DB
 ## Aaron Andal ASIX M10-BD 2021-2022
 
-Imatges docker al DockerHub de [edtasixm06](https://hub.docker.com/u/edtasixm06/)
-
-Documentació del mòdul a [ASIX-M06](https://sites.google.com/site/asixm06edt/)
-
-ASIX M06-ASO Escola del treball de barcelona
-
-### SAMBA Containers:
-
- * **keshikid03/samba21:base_vFinal** 
-
-#### Documentació:
-Executarem l'startup amb bash:
-
-```
-bash startup
-```
-
-Per temes de broadcast amb Windows, 'smbtree' pot no funcionar, llavors, farem la següent ordre desde el propi servidor per comprovar que esta funcionant tot, quan demani password, pulsem 'ENTER'.
-
-```
-smbclient -L localhost
-smbclient -L smb
-```
-
-Iniciem sessió com a pere en el nostre client, llistem els recursos compartits i comprobem la connexió amb 'smbclient':
-
-```
-su - pere
-smbclient -L 172.18.0.2
-```
-
-Entrem als recursos compartits desde l'usuari 'pere':
-
-```
-smbclient //172.18.0.2/doc
-```
-
-Per baixar-nos qualsevol document:
-
-```
-smbget smb://<IP>_<host>/<recurs>/<fitxer>
-```
-
-Per muntar directoris:
-
-```
-mount -t cifs -o <user> //<IP>/<path_origen> <destí>
-```
-
-Per accedir al server desde nautilus:
-
-```
-smb://<IP>
-```
-
-#### Configuració servidor:
-Per crear usuaris samba per poder entrar als recursos compartits hem de fer:
-
-```
-echo -e "<passw>\n<passwd>" | smbpaswd -a -s <user>
-```
-
-Dins d'aquest fitxer: '/etc/samba/smb.conf', afegim un nou recurs permetent només que pugui entrar l'usauri 'rubeeenrg, pere':
-
-```
-[compartit]
-	comment = Compartit de caca i pipi	# Comentari que apraeixerà a l'usauri quan faci 'smbclient'.
-	path = /tmp/compartit	# Path que compartim
-	browseable = yes	# Amb aquesta opció, ens permetrà que l'usuari pugui veure aquest recurs compartit.
-	read only = yes		# Són els permisos que ens diu que només podrem llegir. 
-	guest ok = yes		# Permet login amb 'anonymous' (guest = anonymous (windos)
-	valid users = rubeeenrg, pere		# Només podrem entrar als recursos compartits amb aquests usuaris.
-```
+Información de MONGO1 [MONGO1](https://moodle.escoladeltreball.org/pluginfile.php/199623/mod_resource/content/0/Mongo.pdf)
 
 
+Información de MONGO2 [MONGO2](https://moodle.escoladeltreball.org/pluginfile.php/199628/mod_resource/content/0/04-mongoDB-Intro_CRUD_Exercicis_basics.pdf)
 
-``` 
-docker run --rm --name ldap.edt.org -h ldap.edt.org --net 2hisx -d keshikid03/ldap21:groups
+How to Install Mongo [Mongo Install](https://www.how2shout.com/linux/how-to-install-mongodb-5-0-server-on-debian-11-bullseye/)
 
-docker run --rm --name pam.edt.org -h pam.edt.prg --net 2hisx --privileged -it keshikid03/pam21:ldap /bin/bash
-docker run --rm --name smb.edt.org -h smb.edt.org --net 2hisx -p 445:445 -p 139:139 --privileged -d keshikid03/samba21:base_vFinal
+How to Install Mongo [Ejemplos Mongo](https://moodle.escoladeltreball.org/pluginfile.php/199626/mod_resource/content/0/exemples_Mongo_Inventory.txt.js)
 
-INTERACTIU:
-docker run --rm --name smb.edt.org -h smb.edt.org --net 2hisx -p 445:445 -p 139:139 --privileged -it keshikid03/samba21:base_vFinal /bin/bash
-```
+DOCS MONGO OFICIAL [Mongo oficial](https://docs.mongodb.com)
+
+DOCS MONGO OFICIAL: Query Operations [Mongo oficial](https://docs.mongodb.com/manual/reference/operator/query/)
+
+DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manual/reference/sql-comparison/)
+
+
+## MONGO DB
+
+### SIGNIFICADO Y DEFINICIÓN
+
+### INSTALACIÓN (DEBIAN)
+
+### IMPORTACIÓN
+
+### FINDS() = SELECTS
+
+### OPERADORES EN QUERYS
+
+### OPERACIONES RELACIONALES (AND OR NOT)
+
+### SIGNIFICADO Y DEFINICIÓN
+
+### DML = CRUD
+
+### VARIABLES
+
+### EJEMPLOS
 
