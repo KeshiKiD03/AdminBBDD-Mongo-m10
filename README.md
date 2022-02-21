@@ -64,11 +64,35 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
         {
         Nombre:"Elsa",
         Edad:42
-    }
-]
+        }
+    ]
 } 
 ```
 ### ESTRUCTURA 
+
+**BASE DE DATOS**
+
+* **COLECCIONES**
+
+    * **Documentos** (Objeto del cual guardamos información)
+
+        * **Identificado** de una forma con ID (Si no lo ponemos, lo pone **Mongo**).
+
+        * **Listado de campos** separados por **COMAS** { camp1, camp2, camp3, ....}
+
+            * **CAMPO**
+
+                * **NomDeCampo: Valor**
+
+                * **NomDeCampo: [valor2, valor2],...**
+
+                    * El *valor* puede ser:
+
+                        * **"Valor"**: Comillas obligatorias por TEXTO
+
+                        * Documento/Objeto --> {}.
+
+![Comparison Mongo](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo2.png)
 
 ### INSTALACIÓN (DEBIAN)
 
