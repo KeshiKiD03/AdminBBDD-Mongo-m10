@@ -33,33 +33,33 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 ### CARACTERÍSTICAS
 
-* Poca estructura de datos --> Muy flexible
+* Poca estructura de datos --> Muy ``flexible``
 
 * Muy relacionadas entre ellas.
 
-    * Se procesa más rapido la información, pero el mantenimiento es lento.
+    * Se procesa más ``rapido`` la información, pero el mantenimiento es lento.
 
     * Mucha cantidad de datos.
 
-* Es escalable y fácil de implementar en el cloud, es rápido.
+* Es ``escalable`` y fácil de implementar en el cloud, es rápido.
 
-* MongoDB es muy flexible.
+* MongoDB es muy ``flexible``.
 
 * Tiene **ARRAYS de números o Subdocumentos**.
 
-* Un where es un JSON.
+* Un where es un ``JSON``.
 
-    * Para especificara, hacemos otro JSON {}
+    * Para especificara, hacemos otro ``JSON {}``
 
     * Cogemos la etiqueta del campo.
 
 ### DOCUMENTOS Y COLECCIÓN
 
-* JSON : JavaScript Object Notation: 
+`` JSON : JavaScript Object Notation:`` 
     
-    * Es un formato basado en texto estándar para representar datos estructurados en la sintaxis de Objetos de JavaScript.
+* Es un formato basado en texto estándar para representar datos estructurados en la sintaxis de ``Objetos de JavaScript``.
 
-* **COLECCIÓN:** Es un conjunto de documentos que comparten índices (La información más importante).
+* **``COLECCIÓN``:** Es un conjunto de documentos que comparten índices (La información más importante).
 
     * Los documentos de una COLECCIÓN pueden tener campos diferentes.
 
@@ -86,15 +86,15 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 **BASE DE DATOS**
 
-* **COLECCIONES**
+* **``COLECCIONES``**
 
-    * **Documentos** (Objeto del cual guardamos información)
+    * **``Documentos``** (Objeto del cual guardamos información)
 
-        * **Identificado** de una forma con ID (Si no lo ponemos, lo pone **Mongo**).
+        * **``Identificado``** de una forma con ID (Si no lo ponemos, lo pone **``Mongo``**).
 
-        * **Listado de campos** separados por **COMAS** { camp1, camp2, camp3, ....}
+        * **``Listado de campos``** separados por **``COMAS``** { camp1, camp2, camp3, ....}
 
-            * **CAMPO**
+            * **``CAMPO``**
 
                 * **NomDeCampo: Valor**
 
@@ -122,69 +122,69 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 ### PRIMEROS PASOS DE MONGO DB
 
-1. Para ver a que BBDD estamos conectados: **bd**.
+1. Para ver a que BBDD estamos conectados: **``bd``**.
 
-2. Para ver que BBDD existen: **show databases**
+2. Para ver que BBDD existen: **``show databases``**
 
 3. Conectase a una BBDD
 
-    * **use <nombreBD>**
+    * **``use <nombreBD``>**
 
 4. Ver que colecciones existen en la BBDD.
 
-    * **show collections**
+    * **``show collections``**
 
     * Cuando insertamos, se crea una colección automáticamente.
 
 5. Ayuda:
 
-    * **Help** o **db.help()** o **db.collecio.help()**
+    * **``Help``** o **``db.help()``** o **``db.collecio.help()``**
 
-6. Limpiar la consola: **cls**.
+6. Limpiar la consola: **``cls``**.
 
-7. Consultas: **db.<nomBD>.find()**
+7. Consultas: **``db.<nomBD>.find()``**
 
-    * db.users.find( {name: "Manel"} ).pretty()
+    * ``db.users.find( {name: "Manel"} ).pretty()``
 
 ### IMPORTACIÓN
 
-* **mongoimport --db <dbName> --collection <collectionName> --file <fileName.json>**
+* **``mongoimport --db <dbName> --collection <collectionName> --file <fileName.json>``**
 
 * El fichero JSON puede ser un ARRAY o NO.
 
-    * Si NO es un ARRAY, un documento por cada línea, sin comas entre ellas.
+    * Si ``NO`` es un ARRAY, un documento por cada línea, sin comas entre ellas.
 
-    * Si ES un ARRAY, le ponemos un [i] y se separan los **documentos** con comas.
+    * Si ``ES`` un ARRAY, le ponemos un ``[i]`` y se separan los **``documentos``** con comas.
 
 ### FINDS() = SELECTS
 
 ![MongoDB Find](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo4.PNG)
 
-* **QUERY**: Qué documentos queremos.
+* **``QUERY``**: Qué documentos queremos.
 
-* **PROJECTION**: Qué información queremos ver.
+* **``PROJECTION``**: Qué información queremos ver.
 
-    * Es el **segundo argumento** del **find()**.
+    * Es el **``segundo argumento``** del **``find``()**.
 
-        * Especifica la información (**Los campos**) que queremos mostrar.
+        * Especifica la información (**``Los campos``**) que queremos mostrar.
 
         * Para definir que queremos 1 (INCLUIR1) o 0 (EXCLUIR).
 
         * Por defecto muestra el campo ID.
 
-            * Para ello hay que poner **_id:0**.
+            * Para ello hay que poner **``_id:0``**.
 
-* **MODIFICADOR**: Impone *límites* o *órdenes*.
+* **MODIFICADOR**: Impone *``límites``* o *``órdenes``*.
 
-    * *limit()*
+    * *``limit()``*
 
-    * *order()*
+    * *``order()``*
 
-    * *count()*
+    * *``count()``*
 
-    * *pretty()*
+    * *``pretty()``*
 
-* ***db.collection.findOne()*** --> Retorna 1 registro!.
+* ***``db.collection.findOne()``*** --> Retorna 1 registro!.
 
 ![MongoDB Projection](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo5.PNG)
 
