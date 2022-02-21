@@ -21,15 +21,15 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 * MongoDB es una base de datos orientada a DOCUMENTOS (Semi-Estructurada).
 
-    * La información no se organiz en **TABLAS** es **NOSQL**.
+    * La información no se organiz en **``TABLAS``** es **``NOSQL``**.
 
-    * La información se organiza en **COLECCIONES DE DOCUMENTOS** --> NO USAN UN ESQUEMA DDL.
+    * La información se organiza en **``COLECCIONES DE DOCUMENTOS``** --> NO USAN UN ESQUEMA DDL.
 
-    * Se utilizan estructuras similares a JSON = Diccionarios (Pares **CAMPO-VALOR**).
+    * Se utilizan estructuras similares a JSON = Diccionarios (Pares **``CAMPO-VALOR``**).
 
-    * Se asemeja a un lenguaje de programación que asocia LLAVES con VALORES (Diccionarios, hashes, maps, arrays...).
+    * Se asemeja a un lenguaje de programación que asocia ``LLAVES con VALORES`` (Diccionarios, hashes, maps, arrays...).
 
-    * Usa BSON Documents.
+    * Usa ``BSON`` Documents.
 
 ### CARACTERÍSTICAS
 
