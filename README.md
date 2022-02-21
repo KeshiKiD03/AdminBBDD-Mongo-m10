@@ -19,7 +19,56 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 ## MONGO DB
 
-### SIGNIFICADO Y DEFINICIÓN
+* MongoDB es una base de datos orientada a DOCUMENTOS (Semi-Estructurada).
+
+    * La información no se organiz en **TABLAS** es **NOSQL**.
+
+    * La información se organiza en **COLECCIONES DE DOCUMENTOS** --> NO USAN UN ESQUEMA DDL.
+
+    * Se utilizan estructuras similares a JSON = Diccionarios (Pares **CAMPO-VALOR**).
+
+### CARACTERÍSTICAS
+
+* Poca estructura de datos --> Muy flexible
+
+* Muy relacionadas entre ellas.
+
+    * Se procesa más rapido la información, pero el mantenimiento es lento.
+
+    * Mucha cantidad de datos.
+
+* Es escalable y fácil de implementar en el cloud, es rápido.
+
+### DOCUMENTOS Y COLECCIÓN
+
+* JSON : JavaScript Object Notation: 
+    
+    * Es un formato basado en texto estándar para representar datos estructurados en la sintaxis de Objetos de JavaScript.
+
+* **COLECCIÓN:** Es un conjunto de documentos que comparten índices (La información más importante).
+
+    * Los documentos de una COLECCIÓN pueden tener campos diferentes.
+
+**EJEMPLO DE DOCUMENTO**
+
+```
+{
+    Nombre: "Miguel",
+    Apellidos: "Parada",
+    Edad: 39,
+    Aficiones: ["Música","Ciclismo","Baloncesto"],
+    Amigos: [
+        {
+        Nombre:"Marie",
+        Edad:35 },
+        {
+        Nombre:"Elsa",
+        Edad:42
+    }
+]
+} 
+```
+### ESTRUCTURA 
 
 ### INSTALACIÓN (DEBIAN)
 
