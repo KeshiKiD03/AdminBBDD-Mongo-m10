@@ -118,6 +118,9 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 [INSTALACIÓN DE MONGO DB EN DEBIAN 10 / 11](https://www.how2shout.com/linux/how-to-install-mongodb-5-0-server-on-debian-11-bullseye//)
 
+
+[INSTALACIÓN DE MONGO DB EN UBUNTU 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-20-04-es/)
+
 **SE ABRE MONGOSH**
 
 ### PRIMEROS PASOS DE MONGO DB

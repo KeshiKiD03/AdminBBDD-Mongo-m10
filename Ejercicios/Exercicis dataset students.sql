@@ -177,13 +177,41 @@ test> db.students.find( {gender: "H", birth_year: 1993}).limit(3)
 
 --    Buscar los estudiantes nacidos después del año 1990 (289)
 
-db.students.find( {birth_year: { $gt: 1993} } ).count()
+db.students.find( {birth_year: { $gt: 1990} } ).count()
+
+289
 
 --    Buscar los estudiantes nacidos antes o en el año 1990 (2954)
 
+db.students.find( { birth_year: { $lte: 1990 } } ).count()
+
+2954
+
 --    Buscar los estudiantes nacidos en la década de los 90 (387)
 
+db.students.find( {
+  $and: [
+    { birth_year: { $gte: 1990} },
+    { birth_year: { $lt: 2000} }
+  ]
+}).count()
+
+387
+
+> db.students.find( { birth_year: { $gte: 1990, $lt: 2000} } ).count()
+
+387
+
 --    Buscar los estudiantes nacidos en la década de los 80 (936)
+
+db.students.find( 
+  {
+    $or: [ 
+      {birth_year: { $gte: 1980} },
+      {birth_year: { $lte: 1990}}
+    ]
+  }
+  ).count()
 
 --    Buscar los estudiantes de género femenino nacidos en la década de los 90 (48)
 
