@@ -92,7 +92,7 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
                         * Documento/Objeto --> {}.
 
-![Comparison Mongo](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo2.png)
+![Comparison Mongo](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo2.PNG)
 
 ### INSTALACIÓN (DEBIAN)
 
