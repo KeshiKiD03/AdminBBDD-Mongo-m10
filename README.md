@@ -217,7 +217,7 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 `2895`
 
-```json
+```mongo
 test> db.students.find( {gender: "H"}).limit(3)
 [
   {
