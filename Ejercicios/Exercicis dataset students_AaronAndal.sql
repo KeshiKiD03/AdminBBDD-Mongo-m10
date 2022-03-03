@@ -215,42 +215,90 @@ db.students.find(
 
 --    Buscar los estudiantes de género femenino nacidos en la década de los 90 (48)
 
+test> db.students.find({birth_year:{$gte: 1990, $lte:
+1999},gender:"M"}).pretty().count()
+
 --    Buscar los estudiantes de género masculino nacidos en la década de los 80 (851)
+
+test> db.students.find({birth_year: {$gte: 1980, $lt: 1990}}).sort({birth_year:
+1}).count()
 
 --    Buscar los estudiantes que no han nacido en el año 1985 (3147)
 
+test> db.students.find({birth_year: {$nin: [1985]}}).count()
+
 --    Buscar aquellos estudiantes que hayan nacido en el año 1970, 1980 o 1990 (293)
+
+test> db.students.find({birth_year: {$in: [1970,1980,1990]}}).count()
 
 --    Buscar aquellos estudiantes que no hayan nacido en el año 1970, 1980 o 1990 (2950)
 
+test> db.students.find({birth_year: {$nin: [1970,1980,1990]}}).count()
+
 --    Buscar los estudiantes nacidos en año par (1684)
+
+test> db.students.find({birth_year: {$mod: [2, 0]}}).count()
 
 --    Buscar los estudiantes nacidos en año impar (1559)
 
+test> db.students.find({birth_year: {$mod: [2, 1]}}).count()
+
 --    Buscar estudiantes nacidos en año par de la década de los 70 que sean hombres (403)
+
+test> db.students.find({birth_year: {$gte: 1970, $lt: 1980, $mod: [2, 0]}, gender:
+"H"}).pretty().count()
 
 --    Buscar los estudiantes que tengan teléfono auxiliar (679)
 
+test> db.students.find({phone_aux: {$exists:true}}).count()
+
 --    Buscar los estudiantes que no tengan teléfono auxiliar (2564)
+
+test> db.students.find({phone_aux: {$exists:false}}).count()
 
 --    Buscar los estudiantes que no tengan segundo apellido (421)
 
+test> db.students.find({lastname2: {$exists:false}}).count()
+
 --    Buscar los estudiantes que tengan teléfono auxiliar y solo un apellido (71)
+
+test> db.students.find({phone_aux: {$exists:true},lastname2:{$exists:false}}).count()
 
 --    Crea un nuevo documento en la colección, pero en lugar de utilizar el método insert() usad el método save(). ¿Hay alguna diferencia? Ahora crea otro documento, pero poniendo manualmente el _id. Y crea otro documento más, utilizando la última sentencia, cambiando algún campo (excepto el _id). ¿Qué ocurre? ¿Cuál es la diferencia entonces?
 
+db.students.save( { item: "book", qty: 40 } )
+
+test> db.students.save
+
 --    Buscar los estudiantes cuyo email termine en .net (48)
+
+test> db.students.find({email:/\.net$/}).pretty().count()
 
 --    Buscar los estudiantes cuyo email termine en .org (16)
 
+test> db.students.find({email:/\.org$/}).pretty().count()
+
 --    Buscar los estudiantes cuyo teléfono empiece por 622 (201)
+
+test> db.students.find({$or: [{phone:/^622/},{phone_aux:/^622/}]}).pretty().count()
 
 --    Buscar los estudiantes cuyo dni empiece y termine por letra (244)
 
+No se tiene que hacer
+
 --    Buscar los estudiantes cuyo nombre empiece por vocal (760)
+
+test> db.students.find({$or: [{name: /^A/}, {name: /^E/}, {name: /^I/}, {name: /^O/},
+{name: /^U/}]}).pretty().count()
 
 --    Buscar estudiantes cuyo nombre sea compuesto (470)
 
+test> db.students.find({"name": /.+\s.+/})
+
 --    Buscar los estudiantes con nombre más largo de 13 caracteres (138)
 
+test> db.students.find({"name": /.{13,}/})
+
 --    Buscar los estudiantes con 3 o más vocales en su nombre (705)
+
+db.students.find({"firstname": /.*[aeiouàáèéìíòóùú].*[aeiouàáèéìíòóùú].*[aeiouàáèéìíòóùú].*[aeiouàáèéìíòóùú].*/i})
