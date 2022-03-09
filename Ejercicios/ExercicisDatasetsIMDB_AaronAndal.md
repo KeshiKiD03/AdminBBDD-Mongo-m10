@@ -1,7 +1,6 @@
--- Exercicis amb datasets IMDB
+## Exercicis amb datasets IMDB
 
-/* * exercicisIMDB.js *
-*/
+## /* * exercicisIMDB.js * */
 
 db.movies.find().pretty()
 
