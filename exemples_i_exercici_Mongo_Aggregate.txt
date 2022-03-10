@@ -1,0 +1,77 @@
+﻿// Exemple Aggregate
+
+// PREVIS:
+db.movies.distinct("rating")
+db.movies.distinct("genre")
+db.movies.distinct("directors")
+
+
+
+// Quantes pelis ha fet cada director
+db.movies.aggregate([
+{$group: 
+	{
+	_id: "$directors", 
+	cont: {$sum:1}
+	}
+},
+{$sort: {"_id":1}}  
+])
+
+
+// ordenat per nom del director
+db.movies.aggregate([
+{$group: 
+	{
+	_id: "$directors", 
+	cont: {$sum:1}
+	}
+},
+{$sort: {"_id.name":1}}  
+])
+
+
+
+//ordenat per num de pelis 
+db.movies.aggregate([
+{$group: 
+	{
+	_id: "$directors", 
+	cont: {$sum:1}
+	}
+},
+{$sort: {"cont":1}}  
+])
+
+//ordenat per num de pelis DESC:
+//{$sort: {"cont":-1}}  
+
+//Només les pelis del s. XXI
+db.movies.aggregate([
+{$match: {year: {$gt:2000}}}, 
+{$group: 
+	{
+	_id: "$directors", 
+	cont: {$sum:1}
+	}
+},
+{$sort: {"cont":1}}  
+])
+
+
+
+
+// -------------------------------------------------
+// EXERCICI AGGREGATE:
+// -------------------------------------------------
+
+
+// 23. Busqueu les pelis posteriors al 2000
+// Agrupeu-les per rating i per cada rating calculeu 
+//			- la suma de "runtime"
+
+// 24. Busqueu les pelis posteriors al 2000
+// Agrupeu-les per gènere i per cada gènere calculeu 
+//			la suma de "runtime", la mitjana de "runtime" 
+//			i quantes n'hi ha 
+// ordeneu per gènere
