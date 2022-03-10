@@ -445,6 +445,65 @@ db.movies.distinct("genre")
 
 
 
+#### `IMPORTANTE`
+
+* GRUPOS SON ON THE FLY
+
+
+#### 24. Busqueu les pelis posteriors al 2000
+#### Agrupeu-les per gènere i per cada gènere calculeu 
+####			la suma de "runtime", la mitjana de "runtime" 
+####			i quantes n'hi ha 
+#### ordeneu per gènere
+
+```
+db.movies.aggregate([
+{$match: {year: {$gt:2000}}},
+{$group: 
+	{
+	_id: "$genre", 
+	total:{$sum: "$runtime"},
+	avg:{$avg: "$runtime"},
+	cont: {$sum:1}
+	}
+},
+{$sort: {"_id":1}}  
+])
+```
+
+* Para crear GRUPOS se usa AGGREGATE
+
+* 1 Se hace un $MATCH de lo que queremos FILTRAR
+
+* 2 Se agrupa con un $GROUP
+
+* 3 Se agrupa por GENERO.
+
+* 4 CAMPO: "$ VALOR NUEVO"
+
+* 5 sE QUEDA ON THE FLY
+
+* 6 Se ordena por cada uno de los campos : `_id`, `total`, `avg`, `cont`....
+
+-------------
+
+`OTRO EJEMPLO`
+
+* Sor ordena por genero.
+
+* Si no se usa lo de la _id: "$genre" --> Peta
+
+{
+    _id: "$year"
+
+    runtime_avg: {$avg: "$runtime"}
+
+}
+
+ORDENAR POR id o el 2do campo.
+
+SORT 1.
+
 
 
 
