@@ -422,7 +422,7 @@ mongoimport --db imdb --collection movies --file movies.json
 
 * v1 con $or
  
-```js
+```yaml
 db.students.find( 
     {$or: 
     [ 
@@ -433,7 +433,7 @@ db.students.find(
 
 * v2 con $in
 
-```js
+```yaml
 db.students.find( 
     {"birth_year": {
         $in: [
@@ -448,7 +448,7 @@ db.students.find(
 
 * v1 con $or
 
-```json
+```yaml
 db.books.find( 
     {$or: 
     [ 
@@ -459,7 +459,7 @@ db.books.find(
 
 * v2 con $in
 
-```json
+```yaml
 db.students.find( 
     {"tags": {
         $in: [
@@ -470,7 +470,7 @@ db.students.find(
 
 * v3 con un $and
 
-```json
+```yaml
 db.students.find( 
     {$and: 
     [
@@ -489,17 +489,17 @@ db.students.find(
 
 * v1 sin AND, con operadores de QUERY
 
-```json
+```yaml
 db.students.find( {"birt_year": {$gte: 1990, $lte: 1994}}).pretty()
 ```
 
-```json
+```yaml
 db.books.find( {"publicationYear": {$gte: 1990, $lte: 1994}}).pretty()
 ```
 
 * v2 con AND
 
-```json
+```yaml
 db.students.find( { $and: [
         { "birth_year": { $gte: 1990}},
         { "birth_year": { $lte: 1994}}
@@ -510,7 +510,7 @@ db.students.find( { $and: [
 *Si no queremos ver el id*
 
 
-```json
+```yaml
 db.books.find( { $and: [
         { "publicationYear": { $gte: 1990}},
         { "publicationYear": { $lte: 1994}}
@@ -524,19 +524,19 @@ db.books.find( { $and: [
 
 **Retorna la colección de BOOKS donde cada libro exactamente tenga 2 AUTORES**
 
-```json
+```yaml
 db.books.find({"author": {$size: 2}}).pretty()
 ```
 
 **Retorna la colección de BOOKS donde cada libro exactamente tenga 1 AUTOR**
 
-```json
+```yaml
 db.books.find({"author": {$size: 1}}).pretty()
 ```
 
 **Retorna la colección de BOOKS donde cada libro exactamente tenga 2 AUTOR, 3 o 4 AUTORES**
 
-```json
+```yaml
 db.books.find({$or: [{"author": {$size: 2}},
                      {"author": {$size: 3}},
                      {"author": {$size: 4}}]}
@@ -554,31 +554,31 @@ db.books.find({$or: [{"author": {$size: 2}},
 
 * *$regex: /$[TERMINAN]*
 
-```json
+```yaml
 db.students.find({"name": {$regex: /^[aeiou]/, $options: 'i'}}).pretty()
 ```
 
 * LOS QUE EMPIEZAN POR A E I O U con case SENSITIVE
 
-```json
+```yaml
 db.students.find({"name": {$regex: /^[aeiou]/i}}).pretty()
 ```
 
 * LOS QUE EMPIEZAN POR C con case SENSITIVE
 
-```json
+```yaml
 db.students.find({"name": {$regex: /^[c]/i}}).pretty()
 ```
 
 * SIN REGEX TERMINA EN .NET SIN REGEX
 
-```json
+```yaml
 db.students.find({email: /\.net$/}).pretty().count()
 ```
 
 * SIN $REGEX
 
-```json
+```yaml
 db.students.find({"name": /^[aeiou]/i}).pretty()
 ```
 
@@ -588,7 +588,7 @@ db.students.find({"name": /^[aeiou]/i}).pretty()
 
 * v1
 
-```json
+```yaml
 db.students.find( {
   $and: [
     { birth_year: { $gte: 1990} },
@@ -601,7 +601,7 @@ db.students.find( {
 
 * v2
 
-```json
+```yaml
 db.students.find( { birth_year: { $gte: 1990, $lt: 2000} } ).count()
 ```
 
@@ -611,7 +611,7 @@ db.students.find( { birth_year: { $gte: 1990, $lt: 2000} } ).count()
 
 **Buscar los estudiantes nacidos en la `década de los 80` (936)**
 
-```json
+```yaml
 db.students.find( 
   {
     $or: [ 
@@ -626,7 +626,7 @@ db.students.find(
 
 *--    Buscar los estudiantes de `género femenino` nacidos en la `década de los 90` (48)*
 
-```json
+```yaml
 db.students.find({birth_year:{$gte: 1990, $lte: 1999},gender:"M"}).pretty().count()
 ```
 
@@ -634,7 +634,7 @@ db.students.find({birth_year:{$gte: 1990, $lte: 1999},gender:"M"}).pretty().coun
 
 **--    Buscar los estudiantes de `género masculino` nacidos en la década de los `80` (851)**
 
-```json
+```yaml
 db.students.find({birth_year:{$gte: 1980, $lte: 1989}, gender: "H"}).pretty().count()
 ```
 
