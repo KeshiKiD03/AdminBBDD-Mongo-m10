@@ -422,7 +422,7 @@ mongoimport --db imdb --collection movies --file movies.json
 
 * v1 con $or
  
-```json
+```js
 db.students.find( 
     {$or: 
     [ 
@@ -433,7 +433,7 @@ db.students.find(
 
 * v2 con $in
 
-```json
+```js
 db.students.find( 
     {"birth_year": {
         $in: [
