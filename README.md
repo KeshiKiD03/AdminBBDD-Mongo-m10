@@ -65,7 +65,7 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 **EJEMPLO DE DOCUMENTO**
 
-```
+```yaml
 {
     Nombre: "Miguel",
     Apellidos: "Parada",
@@ -644,7 +644,7 @@ db.students.find({birth_year:{$gte: 1980, $lte: 1989}, gender: "H"}).pretty().co
 
 * LOS QUE HAN NACIDO EN 1985
 
-```json
+```yaml
 db.students.find({birth_year: 1985}).pretty().count()
 ```
 
@@ -652,7 +652,7 @@ db.students.find({birth_year: 1985}).pretty().count()
 
 * EL NOT IN ? $NIN HACE COMO UN OR
 
-```json
+```yaml
 db.students.find( {birth_year: {$nin: [1985]}}).pretty().count()
 ```
 
@@ -662,13 +662,13 @@ db.students.find( {birth_year: {$nin: [1985]}}).pretty().count()
 
 * EL NOT IN ? $IN HACE COMO UN OR
 
-```json
+```yaml
 db.students.find({birth_year: {$in: [1970,1980,1990]}}).count()
 ```
 
 * CON OR
 
-```json
+```yaml
 db.students.find({$or: [{birth_year: 1970},
                         {birth_year: 1980},
                         {birth_year: 1990}]}).count()
@@ -679,7 +679,7 @@ db.students.find({$or: [{birth_year: 1970},
 
 **--    Buscar aquellos estudiantes que `no hayan nacido` en el año 1970, 1980 o 1990 (2950)**
 
-```json
+```yaml
 db.students.find({birth_year: {$nin: [1970,1980,1990]}}).count()
 
 ```
@@ -690,7 +690,7 @@ db.students.find({birth_year: {$nin: [1970,1980,1990]}}).count()
 
 * MODULO = RESTO
 
-```json
+```yaml
 db.students.find({birth_year: {$mod: [2, 0]}}).count()
 ```
 
@@ -698,7 +698,7 @@ db.students.find({birth_year: {$mod: [2, 0]}}).count()
 
 **--    Buscar los estudiantes nacidos en `año impar` (1559)**
 
-```json
+```yaml
 db.students.find({birth_year: {$mod: [2, 1]}}).count()
 
 ```
@@ -707,7 +707,7 @@ db.students.find({birth_year: {$mod: [2, 1]}}).count()
 
 **--    Buscar estudiantes nacidos en `año par` de la década de los 70 que sean hombres (403)**
 
-```json
+```yaml
 db.students.find({
     birth_year: 
         {$mod: [2, 0], 
@@ -723,7 +723,7 @@ db.students.find({
 
 * CON $EXISTS - BOOLEANO
 
-```json
+```yaml
 db.students.find({phone_aux: {$exists:true}}).count()
 
 ```
@@ -734,7 +734,7 @@ db.students.find({phone_aux: {$exists:true}}).count()
 
 * CON $EXISTS - BOOLEANO
 
-```json
+```yaml
 db.students.find({phone_aux: {$exists:false}}).count()
 
 ```
@@ -743,7 +743,7 @@ db.students.find({phone_aux: {$exists:false}}).count()
 
 **--    Buscar los estudiantes que `no tengan segundo apellido` (421)**
 
-```json
+```yaml
 db.students.find({lastname2: {$exists:false}}).count()
 ```
 
@@ -751,7 +751,7 @@ db.students.find({lastname2: {$exists:false}}).count()
 
 **--    Buscar los estudiantes que tengan teléfono auxiliar y `solo un apellido` (71)**
 
-```json
+```yaml
 db.students.find({
     phone_aux: {$exists: true},
     lastname2: {$exists: false}
@@ -765,15 +765,15 @@ db.students.find({
 
 **--    `Crea un nuevo documento` en la `colección`, pero en lugar de utilizar el método `insert()` usad el método `save()`. ¿Hay alguna diferencia? Ahora crea otro documento, pero poniendo manualmente el `_id`. Y crea otro documento más, utilizando la `última sentencia`, cambiando algún campo `(excepto el _id)`. ¿Qué ocurre? ¿Cuál es la diferencia entonces?**
 
-```json
+```yaml
 db.students.save( { item: "book", qty: 40 } )
 ```
 
-```json
+```yaml
 db.students.save( { _id: 100, item: "water", qty: 30 } )
 ```
 
-```json
+```yaml
 db.students.save
 ```
 
@@ -787,7 +787,7 @@ https://docs.mongodb.com/v4.0/reference/method/db.collection.save/
 
 * SIN REGEX, TERMINA EN / SIN CASO SENSITIVO
 
-```json
+```yaml
 db.students.find({email: /\.net$/}).pretty().count()
 ```
 
@@ -798,13 +798,13 @@ db.students.find({email: /\.net$/}).pretty().count()
 
 * CON CASO SENSITVO
 
-```json
+```yaml
 db.students.find({email: /\.ORG$/i}).pretty().count()
 ```
 
 * SIN CASO SENSITIVO
 
-```json
+```yaml
 db.students.find({email: /\.org$/}).pretty().count()
 ```
 
@@ -813,7 +813,7 @@ db.students.find({email: /\.org$/}).pretty().count()
 **--    Buscar los estudiantes `cuyo teléfono` `empiece por 622` (201)**
 
 
-```json
+```yaml
 db.students.find({$or: [{phone:/^622/},{phone_aux:/^622/}]}).pretty().count()
 ```
 
@@ -821,7 +821,7 @@ db.students.find({$or: [{phone:/^622/},{phone_aux:/^622/}]}).pretty().count()
 
 **--    Buscar los estudiantes cuyo dni empiece y termine por letra (244)**
 
-```json
+```yaml
 db.students.find({
     No se tiene que hacer NO SE PUEDE NO TIENE
 })
@@ -834,7 +834,7 @@ db.students.find({
 * $options: 'i' --> CASE SENSITIVE
 
 **OPCION CORRECTA**
-```json
+```yaml
 > db.students.find({"name": /^[aeiouàáèéìíòóùú]{1}/i}).pretty().count()
 760
 ```
@@ -842,25 +842,25 @@ db.students.find({
 
 * *$regex: /$[TERMINAN]*
 
-```json
+```yaml
 db.students.find({$or: [{name: /^A/}, {name: /^E/}, {name: /^I/}, {name: /^O/},
 {name: /^U/}]}).pretty().count()
 ```
 
 
-```json
+```yaml
 db.students.find({"name": {$regex: /^[aeiou]/, $options: 'i'}}).pretty().count()
 ```
 
 * LOS QUE EMPIEZAN POR A E I O U con case SENSITIVE
 
-```json
+```yaml
 db.students.find({"name": {$regex: /^[aeiou]/i}}).pretty().count()
 ```
 
 * SIN $REGEX
 
-```json
+```yaml
 db.students.find({"name": /^[aeiou]/i}).pretty().count()
 ```
 
@@ -868,7 +868,7 @@ db.students.find({"name": /^[aeiou]/i}).pretty().count()
 
 **--    Buscar estudiantes cuyo nombre `sea compuesto` (470)**
 
-```json
+```yaml
 db.students.find({"name": /.+\s.+/}).pretty().count()
 ```
 
@@ -878,13 +878,13 @@ db.students.find({"name": /.+\s.+/}).pretty().count()
 
 v1
 
-```json
+```yaml
 db.students.find({"name": /.{13,}/}).pretty().count()
 ```
 
 * v2
 
-```json
+```yaml
 db.students.find({$where: "this.name.length >= 13"}).count()
 
 ```
@@ -893,7 +893,7 @@ db.students.find({$where: "this.name.length >= 13"}).count()
 
 **--    Buscar los estudiantes con `3 o más vocales en su nombre` (705)**
 
-```json
+```yaml
 db.students.find({"name": /.*[aeiouàáèéìíòóùú].*[aeiouàáèéìíòóùú].*[aeiouàáèéìíòóùú].*[aeiouàáèéìíòóùú].*/i}).count()
 ```
 705
@@ -911,7 +911,7 @@ db.oscars.find().pretty()
 
 **-- 1. Buscar las personas `que sólo han actuado` `(no dirigido)` (1909)**
 
-```json
+```yaml
 db.people.find({hasActed:true,hasDirected:{$exists:false}}).pretty().count()
 
 ```
@@ -921,7 +921,7 @@ db.people.find({hasActed:true,hasDirected:{$exists:false}}).pretty().count()
 
 **-- 2. Buscar las personas que `sólo han dirigido (no actuado)` (341)**
 
-```json
+```yaml
 db.people.find({hasDirected:true,hasActed:{$exists:false}}).pretty().count()
 ```
 
@@ -931,7 +931,7 @@ db.people.find({hasDirected:true,hasActed:{$exists:false}}).pretty().count()
 
 **-- 3. Buscar las personas que `han actuado` y `dirigido` (20)**
 
-```json
+```yaml
 db.people.find({hasDirected:true,hasActed:true}).pretty().count()
 ```
 
@@ -940,7 +940,7 @@ db.people.find({hasDirected:true,hasActed:true}).pretty().count()
 
 **-- 4. Buscar las personas que `ni han actuado ni dirigido` (29)**
 
-```json
+```yaml
 db.people.find({hasDirected:{$exists:false},hasActed:{$exists:false}}).pretty().count()
 ```
 
@@ -951,7 +951,7 @@ db.people.find({hasDirected:{$exists:false},hasActed:{$exists:false}}).pretty().
 
 **-- 5. Buscar las películas protagonizadas por `Penelope Cruz` (2)**
 
-```json
+```yaml
 db.movies.find({"actors.name": "Penelope Cruz"}).count()
 ```
 
@@ -960,7 +960,7 @@ db.movies.find({"actors.name": "Penelope Cruz"}).count()
 
 **-- 5.1.- Mostrar-ne els titols i els directors**
 
-```json
+```yaml
 db.movies.find({"actors.name":"Penelope Cruz"}, {name:1, "directors.name": 1}).pretty()
 ```
 
@@ -972,7 +972,7 @@ db.movies.find({"actors.name":"Penelope Cruz"}, {name:1, "directors.name": 1}).p
 
 ## INSERT
 
-```json
+```yaml
 db.movies.insertOne({name: 'Gran Torino NEW', actors: [{name: 'Clint Eastwood'}, {name: 'Bee Vang'}, {name: 'Christopher Carley'}]})
 ```
 
@@ -987,7 +987,7 @@ db.movies.insertOne({name: 'Gran Torino NEW', actors: [{name: 'Clint Eastwood'},
 
 **-- 7. Fer la consulta per mostrar `les pel·lícules on Clint Eastwood` surt `com a actor` i `com a director`. (3)**
 
-```json
+```yaml
 db.movies.find({"actors.name": 'Clint Eastwood'}, {"directors.name": 'Clint Eastwood'}).count()
 ```
 
@@ -998,7 +998,7 @@ db.movies.find({"actors.name": 'Clint Eastwood'}, {"directors.name": 'Clint East
 
 **-- 8. Mostra el `titol` de les `pelis dirigides` per `James Cameron`** (4)
 
-```json
+```yaml
 db.movies.find({"directors.name": 'James Cameron'}).count()
 ```
 
@@ -1009,7 +1009,7 @@ db.movies.find({"directors.name": 'James Cameron'}).count()
 
 **-- 9. Mostra el titol de les pelis dirigides per `James Cameron` `anteriors` a `l'any 2000`** (3)
 
-```json
+```yaml
 db.movies.find({"directors.name": 'James Cameron', year: {$lt: 2000}}).count()
 ```
 3
@@ -1020,13 +1020,13 @@ db.movies.find({"directors.name": 'James Cameron', year: {$lt: 2000}}).count()
 
 **-- 10. Mostra els `actors que participen a la pel·lícula Avatar`**
 
-```json
+```yaml
 db.movies.find({"name": 'Avatar'},{"actors.name":1}).pretty()
 ```
 
 * OUTPUT
 
-```json
+```yaml
 {
 	"_id" : "0499549",
 	"actors" : [
@@ -1054,13 +1054,13 @@ db.movies.find({"name": 'Avatar'},{"actors.name":1}).pretty()
 
 **-- 11. Nom dels actors que participen en alguna de les `pel·lícules de James Cameron`**
 
-```json
+```yaml
 db.movies.find({"directors.name": 'James Cameron'},{"actors.name":1})
 ```
 
 * OUTPUT
 
-```json
+```yaml
 {
 	"_id" : "0499549",
 	"actors" : [
@@ -1112,7 +1112,7 @@ db.movies.find({"directors.name": 'James Cameron'},{"actors.name":1})
 
 ## INSERT
 
-```json
+```yaml
 db.movies.insertOne({name: 'Hidden Figures', year: 2016, rating: 'PG-13', runtime: 127, genre: 'BDH'})
 ```
 
@@ -1120,7 +1120,7 @@ db.movies.insertOne({name: 'Hidden Figures', year: 2016, rating: 'PG-13', runtim
 
 * OUTPUT
 
-```json
+```yaml
 {
 	"acknowledged" : true,
 	"insertedId" : ObjectId("6228e2a3c7de7acde7d7438d")
@@ -1135,7 +1135,7 @@ db.movies.insertOne({name: 'Hidden Figures', year: 2016, rating: 'PG-13', runtim
 
 ## UPDATE
 
-```json
+```yaml
 db.movies.updateOne({
     name: 'Hidden Figures'
 },
@@ -1144,13 +1144,13 @@ db.movies.updateOne({
 
 * OUTPUT
 
-```json
+```yaml
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 ```
 
 * VERIFY
 
-```json
+```yaml
 > db.movies.find({name: "Hidden Figures"}).pretty()
 {
 	"_id" : ObjectId("6228e2a3c7de7acde7d7438d"),
@@ -1168,14 +1168,14 @@ db.movies.updateOne({
 
 **-- 12.2 `Incrementa` la durada en `10 min`**
 
-```json
+```yaml
 db.movies.updateOne({
     name: 'Hidden Figures'
 },
     {$inc: {runtime: 10}})
 ```
 
-```json
+```yaml
 db.movies.updateOne({
     _id: ObjectId(" 62273a2480f2f183104c9292 ")
 },
@@ -1184,13 +1184,13 @@ db.movies.updateOne({
 
 * OUTPUT
 
-```json
+```yaml
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 ```
 
 * VERIFY
 
-```json
+```yaml
 > db.movies.find({name: "Hidden Figures"}).pretty()
 {
 	"_id" : ObjectId("6228e2a3c7de7acde7d7438d"),
@@ -1208,7 +1208,7 @@ db.movies.updateOne({
 
 **-- 13. `Afegeix els 4 primers actors` (si feu scroll vertical, us surten a l'apartat Cast)**
 
-```json
+```yaml
 db.movies.updateOne({
     name: 'Hidden Figures'
 },
@@ -1217,13 +1217,13 @@ db.movies.updateOne({
 
 * OUTPUT
 
-```json
+```yaml
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 ```
 
 * VERIFY
 
-```json
+```yaml
 > db.movies.find({name: "Hidden Figures"}).pretty()
 {
 	"_id" : ObjectId("6228e2a3c7de7acde7d7438d"),
@@ -1247,7 +1247,7 @@ db.movies.updateOne({
 
 **-- 14. Afegeix-te `a tu com a director`**
 
-```json
+```yaml
 db.movies.updateOne({
     name: 'Hidden Figures'
 },
@@ -1256,13 +1256,13 @@ db.movies.updateOne({
 
 * OUTPUT
 
-```json
+```yaml
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 ```
 
 * VERIFY
 
-```json
+```yaml
 > db.movies.find({name: "Hidden Figures"}).pretty()
 {
 	"_id" : ObjectId("6228e2a3c7de7acde7d7438d"),
@@ -1289,13 +1289,13 @@ db.movies.updateOne({
 
 **-- 15. Treu `la clau de directors`**
 
-```json
+```yaml
 db.movies.find({"name":"Hidden Figures"},{"directors.id":'1'})
 ```
 
 * OUTPUT
 
-```json
+```yaml
 { "_id" : ObjectId("6228e2a3c7de7acde7d7438d") }
 ```
 
@@ -1304,13 +1304,13 @@ db.movies.find({"name":"Hidden Figures"},{"directors.id":'1'})
 
 **-- 16. Torna a posar la clau de directors amb el valor Theodore Melfi.**
 
-```json
+```yaml
 db.movies.updateOne({"_id" : ObjectId("6228e2a3c7de7acde7d7438d") }, {$set:{"directors": "Theodore Melfi"}})
 ```
 
 * VERIFY
 
-```json
+```yaml
 > db.movies.find({name: "Hidden Figures"}).pretty()
 {
 	"_id" : ObjectId("6228e2a3c7de7acde7d7438d"),
@@ -1334,19 +1334,19 @@ db.movies.updateOne({"_id" : ObjectId("6228e2a3c7de7acde7d7438d") }, {$set:{"dir
 
 **-- 17. `Esborreu` la peli**
 
-```json
+```yaml
 db.movies.deleteOne({_id: ObjectId("6228e2a3c7de7acde7d7438d")})
 ```
 
 * OUTPUT
 
-```json
+```yaml
 "_id" : ObjectId("6228e2a3c7de7acde7d7438d")
 ```
 
 * VERIFY
 
-```json
+```yaml
 > db.movies.find({name: "Hidden Figures"}).pretty()
 
 ```
@@ -1357,13 +1357,13 @@ db.movies.deleteOne({_id: ObjectId("6228e2a3c7de7acde7d7438d")})
 
 **-- 18. A totes les pelis del director `George Lucas` posar genre:"`SW`"**
 
-```json
+```yaml
 db.movies.updateMany({'directors.name': 'George Lucas'}, {$set: {genre: 'SW'}})
 ```
 
 * OUTPUT
 
-```json
+```yaml
 { "acknowledged" : true, "matchedCount" : 4, "modifiedCount" : 4 }
 ```
 
@@ -1372,13 +1372,13 @@ db.movies.updateMany({'directors.name': 'George Lucas'}, {$set: {genre: 'SW'}})
 
 **-- 18.0 Mostrar el `nom` i el `gènere de totes les pelis` de `George Lucas`**
 
-```json
+```yaml
 db.movies.find({"directors.name":"George Lucas"},{"name":1, "genre": 1})
 ```
 
 * VERIFY
 
-```json
+```yaml
 > db.movies.find({"directors.name":"George Lucas"},{"name":1, "genre": 1}).pretty()
 {
 	"_id" : "0120915",
@@ -1406,13 +1406,13 @@ db.movies.find({"directors.name":"George Lucas"},{"name":1, "genre": 1})
 
 * Con $all - Busca en subcampos
 
-```json
+```yaml
 db.movies.find({'actors.name': { $all: ['Kate Winslet', 'Leonardo DiCaprio']}}, {name: 1,'actors.name': 1}).pretty()
 ```
 
 * VERIFY
 
-```json
+```yaml
 db.movies.find({'actors.name': { $all: ['Kate Winslet', 'Leonardo DiCaprio']}}, {name: 1,'actors.name': 1}).pretty()
 {
 	"_id" : "0120338",
@@ -1597,7 +1597,7 @@ HAVING total > 250
 
 ### MONGO
 
-```json
+```yaml
 db.orders.aggregate( [
     { $match: { status: 'A' } },
     {
