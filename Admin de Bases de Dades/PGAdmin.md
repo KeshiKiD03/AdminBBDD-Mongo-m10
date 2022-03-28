@@ -17,3 +17,12 @@ sudo ufw allow http
 sudo ufw allow https
 
 http://[ServerIP_or_domain]/pgadmin4
+
+
+https://noviello.it/es/como-instalar-pgadmin4-en-ubuntu-20-04-lts/ 
+
+https://tableplus.com/blog/2018/10/how-to-create-superuser-in-postgresql.html
+
+CREATE ROLE rolename LOGIN SUPERUSER PASSWORD 'passwordstring';
+
+CREATE USER is equivalent to CREATE ROLE except that CREATE USER assumes LOGIN by default, while CREATE ROLE does not.
