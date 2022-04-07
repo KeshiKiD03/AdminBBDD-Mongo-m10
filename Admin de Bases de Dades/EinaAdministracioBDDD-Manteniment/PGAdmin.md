@@ -26,3 +26,15 @@ https://tableplus.com/blog/2018/10/how-to-create-superuser-in-postgresql.html
 CREATE ROLE rolename LOGIN SUPERUSER PASSWORD 'passwordstring';
 
 CREATE USER is equivalent to CREATE ROLE except that CREATE USER assumes LOGIN by default, while CREATE ROLE does not.
+
+# PGADMIN - IMPORTAR EL SQL
+
+CREAR UNA BASE DE DATOS
+
+* Estructura de DATOS
+
+--> Schemas --> Public --> Click Derecho --> Create SCRIPT --> Open File --> Pagila Schema.sql
+
+--
+
+* DATOS
