@@ -1,0 +1,15 @@
+1- Creem la base de dades 'aire' a mà
+	template1=# CREATE DATABASE aire;
+	CREATE DATABASE
+
+2- Executem l'script 'conn_bddd.sh' per connectar-nos a la BBDD e inserir la taula amb l'utilització de l'script 'create_table.sql'
+
+	$ bash conn_bbdd.sh aire '/home/users/inf/hisx2/isx48062351/create_table.sql'
+	
+	- Per probar si va bé el ETL, podem provar el fitxer AWK amb un csv origen:
+	
+	awk -f filtre_aire.awk aire.csv
+
+3- Executem 'script_csv_awk.sh' que utilitza un fitxer 'filtre_aire.awk'
+
+	$ bash script_csv_awk.sh
