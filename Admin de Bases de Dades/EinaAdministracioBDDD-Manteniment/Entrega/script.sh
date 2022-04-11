@@ -1,20 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
-pg_dump -Fc pagila > pagila-"$(date)".dump
+hostname='localhost'
 
-# SQL Script-file type:
-# pg_dump pagila > pagila.sql
+echo "0 11 * * * /var/tmp/pagila/script.sh" | tee -a /var/spool/cron/root
 
-# Directory Format Archive
-# pg_dump -Fd pagila -f pagila
+pathfilename="/var/tmp/pagila/${hostname}_pagila_${date}.dump"
 
-# Directory format in parallel with 5 worker jobs
-# pg_dump -Fd pagila -j 5 -f dumpdir
+echo $pathfilename
 
-# A single table
-# pg_dump -t mypagilatab pagila > pagila.sql
+pg_dump -Fc pagila > $pathfilename
 
-# To dump all tables whose names start with emp in the detroit schema, except for the table named employee_log:
-# $ pg_dump -t 'detroit.emp*' -T detroit.employee_log mydb > db.sql
+gzip $pathfilename > $pathfilename.gz
 
-# More info: https://www.postgresql.org/docs/current/app-pgdump.html 
+if [ "$?" -eq 0 ]
+
+then
+	echo "Enviando correo electrónico..." | mail -s "Backup completado"
+chasekid03@gmail.com
+
+else
+	exit 1
+fi
