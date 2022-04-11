@@ -8,19 +8,20 @@ CSV_TMP=$(mktemp -u); trap 'rm -f "${CSV_TMP}"' EXIT
 
 PSQL="psql ${PG_DATABASE}" 
 
-# Baixem i netegem les dades
+# Descargamos y limpiamos los datoss
 
-#curl -fs | sed '/N/d' > "${CSV_TMP}" # filtrar 
+##curl -fs | sed '/N/d' > "${CSV_TMP}" # filtrar 
+
 curl -fsSL "${CSV_URL}" | awk -f filtre_aire.awk  > "${CSV_TMP}"
 
 cp "${CSV_TMP}" "/var/tmp/AIRE.csv"
 
-# Importem el csv, treient la capçalera
+# Importamos el CSV, quitando la cabecera
 ${PSQL} <<-EOF
    \copy aire3 from '${CSV_TMP}' DELIMITER ';' CSV HEADER; 
 EOF
 
-# Fem neteja de la taula, només guardem dels darrers 2 mesos... (exemple una mica xorra...)
+# Realizamos la limpieza de la tabla, sólo guardaremos los últimos 2 meses
 #${PSQL} <<-EOF
 #   delete from aire3 where extract(month from current_date)-mes>1;
 #EOF

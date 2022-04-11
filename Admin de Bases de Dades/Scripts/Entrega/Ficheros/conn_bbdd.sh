@@ -1,18 +1,18 @@
 #!/bin/bash
-set -e      # si hi ha un error surt
+set -e      # Si hubiera error sale
 set -u      # Treat unset variables as an error when substituting.
 
 if [ $# != 2 ]; then
-    echo "please enter a database name and a script to execute (full path)"
+    echo "Please enter a BBDD name and a Script to execute (full path)"
     exit 1
 fi
 
 export DBNAME=$1
 export SCRIPT_PATH=$2
 
-# export PGPASSWORD="postgres"  # suposant que executo des de l'usuari postgres i al pg_hba.conf el tinc amb md5
-# si executeu amb el vostre usuari que el teniu amb peer no cal fer res
-# si li passeu un usuari a la crida psql , pq no us demani el password, el podeu exportar
+# export PGPASSWORD="postgres"  # Suponiendo que ejecuto desde el usuario POSTGRES i al PG_HBA.conf lo tengo como encriptación md5
+# Si lo ejecutan con su usuario y lo tienen con 'peer' no hace falta nada
+# Si le pasan a un usuario mediante psql, para que pida el password, se puede exportar
 
 psql \
     -d $DBNAME \
