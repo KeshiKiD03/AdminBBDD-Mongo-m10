@@ -108,9 +108,9 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 ### COMPARACIÓN MONGO VS SQL (Modelo Relacional)
 
-![Comparison Mongo](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo2.PNG)
+![Comparison Mongo](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo2.PNG)
 
-![Comparison Mongo0](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo3.PNG)
+![Comparison Mongo0](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo3.PNG)
 
 [MongoDB SQL Comparison](https://docs.mongodb.com/manual/reference/sql-comparison/)
 
@@ -161,7 +161,7 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 ### FINDS() = SELECTS
 
-![MongoDB Find](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo4.PNG)
+![MongoDB Find](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo4.PNG)
 
 * **``QUERY``**: Qué documentos queremos.
 
@@ -189,21 +189,21 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 * ***``db.collection.findOne()``*** --> Retorna 1 registro!.
 
-![MongoDB Projection](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo5.PNG)
+![MongoDB Projection](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo5.PNG)
 
-![MongoDB Modificador](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo6.PNG)
+![MongoDB Modificador](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo6.PNG)
 
 ### EJEMPLOS DE CONSULTA ADE DATOS
 
 [MongoDB Ejemplos](https://docs.mongodb.com/manual/tutorial/query-documents/)
 
-![MongoDB Ejemplos Consulta](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo7.PNG)
+![MongoDB Ejemplos Consulta](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo7.PNG)
 
 ### OPERADORES EN QUERYS
 
 [MongoDB Operadores Querys](https://docs.mongodb.com/manual/reference/operator/query/)
 
-![MongoDB Ejemplos Consulta](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo8.PNG)
+![MongoDB Ejemplos Consulta](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo8.PNG)
 
 ### OPERACIONES RELACIONALES (AND OR NOT)
 
@@ -327,7 +327,7 @@ mongoimport --db imdb --collection movies --file movies.json
 
 ### FINDS() = SELECTS
 
-![MongoDB Find](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo4.PNG)
+![MongoDB Find](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo4.PNG)
 
 * **``QUERY``**: Qué documentos queremos.
 
@@ -355,15 +355,15 @@ mongoimport --db imdb --collection movies --file movies.json
 
 * ***``db.collection.findOne()``*** --> Retorna 1 registro!.
 
-![MongoDB Projection](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo5.PNG)
+![MongoDB Projection](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo5.PNG)
 
-![MongoDB Modificador](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo6.PNG)
+![MongoDB Modificador](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo6.PNG)
 
 ## OPERADORES QUERY
 
 [MongoDB Operadores Querys](https://docs.mongodb.com/manual/reference/operator/query/)
 
-![MongoDB Ejemplos Consulta](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo8.PNG)
+![MongoDB Ejemplos Consulta](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/blob/master/Photos/mongo8.PNG)
 
 * $gt --> `Mayor que`
 
