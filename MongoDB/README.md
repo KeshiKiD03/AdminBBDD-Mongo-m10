@@ -108,7 +108,7 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 ### COMPARACIÓN MONGO VS SQL (Modelo Relacional)
 
-![Comparison Mongo](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo2.PNG)
+![Comparison Mongo](https://github.com/KeshiKiD03/AdminBBDD-Mongo-m10/MongoDB/Photos/mongo2.PNG)
 
 ![Comparison Mongo0](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo3.PNG)
 
