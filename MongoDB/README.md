@@ -161,7 +161,7 @@ DOCS MONGO OFICIAL: Comparison SQL [Mongo oficial](https://docs.mongodb.com/manu
 
 ### FINDS() = SELECTS
 
-![MongoDB Find](https://github.com/KeshiKiD03/m10/blob/master/Photos/mongo4.PNG)
+![MongoDB Find](https://github.com/KeshiKiD03/m10/blob/master/MongoDB/Photos/mongo4.PNG)
 
 * **``QUERY``**: Qué documentos queremos.
 
